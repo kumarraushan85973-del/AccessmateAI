@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AccessMate AI – AI-powered accessibility companion for people with visual, hearing, and reading difficulties." />
+  <title>AccessMate AI – Your Accessibility Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Voice Overlay -->
+  <div id="voice-overlay" class="voice-overlay" aria-hidden="true">
+    <div class="voice-overlay-content">
+      <div class="voice-ripple"><span class="material-icons-round">mic</span></div>
+      <p id="voice-overlay-text">Listening…</p>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+    <div class="sidebar-brand">
+      <span class="brand-icon material-icons-round">accessibility_new</span>
+      <div>
+        <h1 class="brand-title">AccessMate<span class="brand-ai">AI</span></h1>
+        <p class="brand-tagline">Your Accessibility Companion</p>
+      </div>
+    </div>
+    <ul class="nav-list" role="menubar">
+      <li><button class="nav-btn active" data-page="dashboard" role="menuitem" aria-current="page">
+        <span class="material-icons-round">dashboard</span><span class="nav-label">Dashboard</span>
+      </button></li>
+      <li><button class="nav-btn" data-page="camera" role="menuitem">
+        <span class="material-icons-round">photo_camera</span><span class="nav-label">Camera AI</span>
+      </button></li>
+      <li><button class="nav-btn" data-page="stt" role="menuitem">
+        <span class="material-icons-round">mic</span><span class="nav-label">Speech to Text</span>
+      </button></li>
+      <li><button class="nav-btn" data-page="tts" role="menuitem">
+        <span class="material-icons-round">record_voice_over</span><span class="nav-label">Text to Speech</span>
+      </button></li>
+      <li><button class="nav-btn" data-page="summarizer" role="menuitem">
+        <span class="material-icons-round">summarize</span><span class="nav-label">Summarizer</span>
+      </button></li>
+      <li><button class="nav-btn" data-page="translator" role="menuitem">
+        <span class="material-icons-round">translate</span><span class="nav-label">Translator</span>
+      </button></li>
+      <li><button class="nav-btn" data-page="settings" role="menuitem">
+        <span class="material-icons-round">settings</span><span class="nav-label">Settings</span>
+      </button></li>
+    </ul>
+    <div class="sidebar-footer">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="material-icons-round">dark_mode</span>
+      </button>
+      <button id="voice-nav-btn" class="icon-btn pulse-hint" aria-label="Voice navigation" title="Say a command">
+        <span class="material-icons-round">mic</span>
+      </button>
+      <button id="font-size-btn" class="icon-btn" aria-label="Increase font size" title="Change font size">
+        <span class="material-icons-round">text_fields</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Header -->
+  <header class="mobile-header" aria-label="Mobile header">
+    <button id="mobile-menu-btn" class="icon-btn" aria-label="Open menu">
+      <span class="material-icons-round">menu</span>
+    </button>
+    <h1 class="mobile-brand">AccessMate<span class="brand-ai">AI</span></h1>
+    <button id="mobile-voice-btn" class="icon-btn pulse-hint" aria-label="Voice command">
+      <span class="material-icons-round">mic</span>
+    </button>
+  </header>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="main-content" class="main-content">
+
+    <!-- ===== DASHBOARD ===== -->
+    <section id="page-dashboard" class="page active" aria-label="Dashboard">
+      <div class="page-header">
+        <div>
+          <h2 class="page-title">Welcome to <span class="highlight">AccessMate AI</span></h2>
+          <p class="page-subtitle">Your AI-powered accessibility companion. Choose a feature below or say <kbd>"Hey AccessMate"</kbd> to use voice navigation.</p>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><span class="material-icons-round stat-icon">visibility</span><div><span class="stat-number">6</span><span class="stat-label">AI Features</span></div></div>
+        <div class="stat-card"><span class="material-icons-round stat-icon">language</span><div><span class="stat-number">40+</span><span class="stat-label">Languages</span></div></div>
+        <div class="stat-card"><span class="material-icons-round stat-icon">speed</span><div><span class="stat-number">Real-time</span><span class="stat-label">Processing</span></div></div>
+      </div>
+      <div class="feature-grid">
+        <button class="feature-card" data-navigate="camera" aria-label="Open Camera AI Assistant">
+          <div class="feature-card-icon" style="--accent:#4285f4;"><span class="material-icons-round">photo_camera</span></div>
+          <h3>Camera AI Assistant</h3>
+          <p>Point your camera to identify objects, read signs, labels, and printed text aloud.</p>
+          <span class="feature-card-action">Open →</span>
+        </button>
+        <button class="feature-card" data-navigate="stt" aria-label="Open Speech to Text">
+          <div class="feature-card-icon" style="--accent:#ea4335;"><span class="material-icons-round">mic</span></div>
+          <h3>Speech to Text</h3>
+          <p>Convert spoken words into written text in real time. Great for note-taking and dictation.</p>
+          <span class="feature-card-action">Open →</span>
+        </button>
+        <button class="feature-card" data-navigate="tts" aria-label="Open Text to Speech">
+          <div class="feature-card-icon" style="--accent:#34a853;"><span class="material-icons-round">record_voice_over</span></div>
+          <h3>Text to Speech</h3>
+          <p>Paste or type any text and have it read aloud in a natural voice. Supports multiple languages.</p>
+          <span class="feature-card-action">Open →</span>
+        </button>
+        <button class="feature-card" data-navigate="summarizer" aria-label="Open Document Summarizer">
+          <div class="feature-card-icon" style="--accent:#fbbc05;"><span class="material-icons-round">summarize</span></div>
+          <h3>AI Summarizer</h3>
+          <p>Paste lengthy documents and get simple, easy-to-understand summaries in English &amp; Hindi.</p>
+          <span class="feature-card-action">Open →</span>
+        </button>
+        <button class="feature-card" data-navigate="translator" aria-label="Open Language Translator">
+          <div class="feature-card-icon" style="--accent:#9334e6;"><span class="material-icons-round">translate</span></div>
+          <h3>Language Translator</h3>
+          <p>Translate text between 40+ languages instantly using the power of Gemini AI.</p>
+          <span class="feature-card-action">Open →</span>
+        </button>
+        <button class="feature-card" data-navigate="voice-nav" aria-label="Use Voice Navigation" id="card-voice-nav">
+          <div class="feature-card-icon" style="--accent:#e8710a;"><span class="material-icons-round">settings_voice</span></div>
+          <h3>Voice Navigation</h3>
+          <p>Navigate the entire app hands-free using voice commands powered by AI.</p>
+          <span class="feature-card-action">Try it →</span>
+        </button>
+      </div>
+      <div class="api-status-banner" id="api-status-banner">
+        <span class="material-icons-round">info</span>
+        <span id="api-status-text">Checking configuration…</span>
+      </div>
+    </section>
+
+    <!-- ===== CAMERA AI ===== -->
+    <section id="page-camera" class="page" aria-label="Camera AI Assistant">
+      <div class="page-header">
+        <button class="back-btn" data-navigate="dashboard" aria-label="Back to dashboard"><span class="material-icons-round">arrow_back</span></button>
+        <div>
+          <h2 class="page-title">📷 Camera AI Assistant</h2>
+          <p class="page-subtitle">Point your camera at objects, text, or scenes – AI will describe them and read text aloud.</p>
+        </div>
+      </div>
+      <div class="camera-container">
+        <div class="camera-viewport">
+          <video id="camera-video" autoplay playsinline></video>
+          <canvas id="camera-canvas" style="display:none;"></canvas>
+          <div id="camera-placeholder" class="camera-placeholder">
+            <span class="material-icons-round">videocam_off</span>
+            <p>Camera is off. Click "Start Camera" to begin.</p>
+          </div>
+        </div>
+        <div class="camera-controls">
+          <button id="btn-start-camera" class="btn btn-primary btn-lg"><span class="material-icons-round">videocam</span> Start Camera</button>
+          <button id="btn-flip-camera" class="btn btn-outline btn-lg" disabled><span class="material-icons-round">flip_camera_ios</span> Flip Camera</button>
+          <button id="btn-capture" class="btn btn-accent btn-lg" disabled><span class="material-icons-round">camera</span> Capture &amp; Identify</button>
+          <button id="btn-read-text" class="btn btn-secondary btn-lg" disabled><span class="material-icons-round">text_fields</span> Read Text</button>
+          <button id="btn-stop-camera" class="btn btn-outline btn-lg" disabled><span class="material-icons-round">videocam_off</span> Stop Camera</button>
+        </div>
+        <div id="camera-result" class="result-box" aria-live="polite">
+          <div class="result-header">
+            <span class="material-icons-round">smart_toy</span><span>AI Response</span>
+            <button class="btn btn-sm btn-icon speak-btn" data-target="camera-result-text" title="Read aloud"><span class="material-icons-round">volume_up</span></button>
+          </div>
+          <div id="camera-result-text" class="result-text">Capture an image to get started.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SPEECH TO TEXT ===== -->
+    <section id="page-stt" class="page" aria-label="Speech to Text">
+      <div class="page-header">
+        <button class="back-btn" data-navigate="dashboard" aria-label="Back to dashboard"><span class="material-icons-round">arrow_back</span></button>
+        <div>
+          <h2 class="page-title">🎤 Speech to Text</h2>
+          <p class="page-subtitle">Speak into your microphone and see your words converted to text in real time.</p>
+        </div>
+      </div>
+      <div class="feature-panel">
+        <div class="stt-controls">
+          <div class="language-select">
+            <label for="stt-lang">Recognition Language:</label>
+            <select id="stt-lang" class="select">
+              <option value="en-IN">English (India)</option>
+              <option value="en-US">English (US)</option>
+              <option value="hi-IN">Hindi (हिंदी)</option>
+              <option value="ta-IN">Tamil (தமிழ்)</option>
+              <option value="te-IN">Telugu (తెలుగు)</option>
+              <option value="bn-IN">Bengali (বাংলা)</option>
+              <option value="mr-IN">Marathi (मराठी)</option>
+              <option value="gu-IN">Gujarati (ગુજરાતી)</option>
+              <option value="kn-IN">Kannada (ಕನ್ನಡ)</option>
+              <option value="ml-IN">Malayalam (മലയാളം)</option>
+              <option value="pa-IN">Punjabi (ਪੰਜਾਬੀ)</option>
+              <option value="es-ES">Spanish</option>
+              <option value="fr-FR">French</option>
+              <option value="de-DE">German</option>
+              <option value="ja-JP">Japanese</option>
+              <option value="zh-CN">Chinese (Mandarin)</option>
+              <option value="ar-SA">Arabic</option>
+            </select>
+          </div>
+          <button id="btn-stt-start" class="btn btn-primary btn-lg"><span class="material-icons-round">mic</span> Start Listening</button>
+          <button id="btn-stt-stop" class="btn btn-outline btn-lg" disabled><span class="material-icons-round">mic_off</span> Stop</button>
+        </div>
+        <div class="stt-status" id="stt-status"><span class="status-dot"></span> Ready</div>
+        <div class="text-output-box">
+          <div class="result-header">
+            <span class="material-icons-round">text_snippet</span><span>Transcribed Text</span>
+            <div class="result-actions">
+              <button class="btn btn-sm btn-icon" id="btn-stt-copy" title="Copy text"><span class="material-icons-round">content_copy</span></button>
+              <button class="btn btn-sm btn-icon" id="btn-stt-clear" title="Clear"><span class="material-icons-round">delete</span></button>
+            </div>
+          </div>
+          <div id="stt-output" class="result-text editable" contenteditable="true" role="textbox" aria-label="Transcribed text output">
+            <span class="placeholder-text">Your transcribed text will appear here…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEXT TO SPEECH ===== -->
+    <section id="page-tts" class="page" aria-label="Text to Speech">
+      <div class="page-header">
+        <button class="back-btn" data-navigate="dashboard" aria-label="Back to dashboard"><span class="material-icons-round">arrow_back</span></button>
+        <div>
+          <h2 class="page-title">🔊 Text to Speech</h2>
+          <p class="page-subtitle">Type or paste text and have it read aloud in a natural voice.</p>
+        </div>
+      </div>
+      <div class="feature-panel">
+        <div class="tts-input-group">
+          <label for="tts-input">Enter text to read aloud:</label>
+          <textarea id="tts-input" class="textarea" rows="6" placeholder="Type or paste your text here…"></textarea>
+          <div class="char-count"><span id="tts-char-count">0</span> characters</div>
+        </div>
+        <div class="tts-controls">
+          <div class="control-row">
+            <div class="language-select"><label for="tts-voice">Voice:</label><select id="tts-voice" class="select"><option value="">Loading voices…</option></select></div>
+            <div class="range-group"><label for="tts-rate">Speed:</label><input type="range" id="tts-rate" min="0.5" max="2" step="0.1" value="1" class="range" /><span id="tts-rate-val">1.0×</span></div>
+            <div class="range-group"><label for="tts-pitch">Pitch:</label><input type="range" id="tts-pitch" min="0" max="2" step="0.1" value="1" class="range" /><span id="tts-pitch-val">1.0</span></div>
+          </div>
+          <div class="btn-row">
+            <button id="btn-tts-speak" class="btn btn-primary btn-lg"><span class="material-icons-round">play_arrow</span> Speak</button>
+            <button id="btn-tts-pause" class="btn btn-secondary btn-lg" disabled><span class="material-icons-round">pause</span> Pause</button>
+            <button id="btn-tts-stop" class="btn btn-outline btn-lg" disabled><span class="material-icons-round">stop</span> Stop</button>
+          </div>
+        </div>
+        <div class="tts-progress" id="tts-progress">
+          <div class="progress-bar"><div class="progress-fill" id="tts-progress-fill"></div></div>
+          <span id="tts-progress-text">Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SUMMARIZER ===== -->
+    <section id="page-summarizer" class="page" aria-label="Document Summarizer">
+      <div class="page-header">
+        <button class="back-btn" data-navigate="dashboard" aria-label="Back to dashboard"><span class="material-icons-round">arrow_back</span></button>
+        <div>
+          <h2 class="page-title">📝 AI Document Summarizer</h2>
+          <p class="page-subtitle">Paste long text and get a simple, easy-to-understand summary in English and Hindi.</p>
+        </div>
+      </div>
+      <div class="feature-panel">
+        <div class="summarizer-input-group">
+          <label for="summarizer-input">Paste your document or text:</label>
+          <textarea id="summarizer-input" class="textarea" rows="8" placeholder="Paste your long document, article, or text here…"></textarea>
+          <div class="char-count"><span id="sum-char-count">0</span> characters</div>
+        </div>
+        <div class="summarizer-controls">
+          <div class="language-select"><label for="sum-lang">Summary Language:</label>
+            <select id="sum-lang" class="select">
+              <option value="both">English + Hindi (Both)</option>
+              <option value="english">English Only</option>
+              <option value="hindi">Hindi Only (हिंदी)</option>
+            </select>
+          </div>
+          <button id="btn-summarize" class="btn btn-primary btn-lg"><span class="material-icons-round">auto_awesome</span> Summarize with AI</button>
+        </div>
+        <div id="summarizer-result" class="result-box" aria-live="polite">
+          <div class="result-header">
+            <span class="material-icons-round">smart_toy</span><span>AI Summary</span>
+            <div class="result-actions">
+              <button class="btn btn-sm btn-icon speak-btn" data-target="summarizer-result-text" title="Read aloud"><span class="material-icons-round">volume_up</span></button>
+              <button class="btn btn-sm btn-icon" id="btn-sum-copy" title="Copy"><span class="material-icons-round">content_copy</span></button>
+            </div>
+          </div>
+          <div id="summarizer-result-text" class="result-text">Your summary will appear here.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRANSLATOR ===== -->
+    <section id="page-translator" class="page" aria-label="Language Translator">
+      <div class="page-header">
+        <button class="back-btn" data-navigate="dashboard" aria-label="Back to dashboard"><span class="material-icons-round">arrow_back</span></button>
+        <div>
+          <h2 class="page-title">🌐 Language Translator</h2>
+          <p class="page-subtitle">Translate text between 40+ languages instantly with Gemini AI.</p>
+        </div>
+      </div>
+      <div class="feature-panel translator-layout">
+        <div class="translator-col">
+          <div class="language-select"><label for="trans-source-lang">From:</label>
+            <select id="trans-source-lang" class="select">
+              <option value="Auto-detect">Auto Detect</option>
+              <option value="English" selected>English</option>
+              <option value="Hindi">Hindi (हिंदी)</option>
+              <option value="Tamil">Tamil (தமிழ்)</option>
+              <option value="Telugu">Telugu (తెలుగు)</option>
+              <option value="Bengali">Bengali (বাংলা)</option>
+              <option value="Marathi">Marathi (मराठी)</option>
+              <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+              <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+              <option value="Malayalam">Malayalam (മലയാളം)</option>
+              <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+              <option value="Urdu">Urdu (اردو)</option>
+              <option value="Spanish">Spanish</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Arabic">Arabic</option>
+            </select>
+          </div>
+          <textarea id="trans-input" class="textarea" rows="6" placeholder="Type or paste text to translate…"></textarea>
+        </div>
+        <button id="btn-swap-lang" class="btn btn-icon swap-btn" aria-label="Swap languages" title="Swap languages"><span class="material-icons-round">swap_horiz</span></button>
+        <div class="translator-col">
+          <div class="language-select"><label for="trans-target-lang">To:</label>
+            <select id="trans-target-lang" class="select">
+              <option value="Hindi" selected>Hindi (हिंदी)</option>
+              <option value="English">English</option>
+              <option value="Tamil">Tamil (தமிழ்)</option>
+              <option value="Telugu">Telugu (తెలుగు)</option>
+              <option value="Bengali">Bengali (বাংলা)</option>
+              <option value="Marathi">Marathi (मराठी)</option>
+              <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+              <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+              <option value="Malayalam">Malayalam (മലയാളം)</option>
+              <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+              <option value="Urdu">Urdu (اردو)</option>
+              <option value="Spanish">Spanish</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Arabic">Arabic</option>
+            </select>
+          </div>
+          <div id="trans-output" class="textarea result-textarea" aria-label="Translated text">Translation will appear here…</div>
+        </div>
+      </div>
+      <div class="translator-actions">
+        <button id="btn-translate" class="btn btn-primary btn-lg"><span class="material-icons-round">translate</span> Translate</button>
+        <button class="btn btn-sm btn-icon speak-btn" data-target="trans-output" title="Read translation aloud"><span class="material-icons-round">volume_up</span></button>
+        <button class="btn btn-sm btn-icon" id="btn-trans-copy" title="Copy translation"><span class="material-icons-round">content_copy</span></button>
+      </div>
+    </section>
+
+    <!-- ===== SETTINGS ===== -->
+    <section id="page-settings" class="page" aria-label="Settings">
+      <div class="page-header">
+        <button class="back-btn" data-navigate="dashboard" aria-label="Back to dashboard"><span class="material-icons-round">arrow_back</span></button>
+        <div>
+          <h2 class="page-title">⚙️ Settings</h2>
+          <p class="page-subtitle">Configure your Gemini API key and app preferences.</p>
+        </div>
+      </div>
+
+      <div class="feature-panel">
+        <!-- API Key Section -->
+        <div class="settings-section">
+          <h3 class="settings-heading"><span class="material-icons-round">key</span> Gemini API Key</h3>
+          <p class="settings-desc">Required for Camera AI, Summarizer, Translator, and Voice Navigation. Get a free key from <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a>.</p>
+          <div class="api-key-input-group">
+            <input type="password" id="api-key-input" class="textarea" placeholder="Paste your Gemini API key here…" autocomplete="off" />
+            <button id="btn-toggle-key" class="btn btn-icon" title="Show/Hide key" aria-label="Toggle key visibility">
+              <span class="material-icons-round">visibility</span>
+            </button>
+          </div>
+          <div class="btn-row" style="margin-top:12px;">
+            <button id="btn-save-key" class="btn btn-primary"><span class="material-icons-round">save</span> Save Key</button>
+            <button id="btn-test-key" class="btn btn-secondary"><span class="material-icons-round">science</span> Test Key</button>
+            <button id="btn-clear-key" class="btn btn-outline"><span class="material-icons-round">delete</span> Remove Key</button>
+          </div>
+          <div id="key-status" class="key-status" aria-live="polite"></div>
+        </div>
+
+        <!-- How to get key -->
+        <div class="settings-section">
+          <h3 class="settings-heading"><span class="material-icons-round">help</span> How to Get Your API Key</h3>
+          <div class="steps-list">
+            <div class="step"><span class="step-num">1</span><span>Go to <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a></span></div>
+            <div class="step"><span class="step-num">2</span><span>Sign in with your Google account</span></div>
+            <div class="step"><span class="step-num">3</span><span>Click <strong>"Create API Key"</strong></span></div>
+            <div class="step"><span class="step-num">4</span><span>Copy the key and paste it above</span></div>
+            <div class="step"><span class="step-num">5</span><span>Click <strong>"Save Key"</strong> — done!</span></div>
+          </div>
+        </div>
+
+        <!-- Preferences -->
+        <div class="settings-section">
+          <h3 class="settings-heading"><span class="material-icons-round">tune</span> Preferences</h3>
+          <div class="pref-row">
+            <span>Dark Mode</span>
+            <button id="pref-theme" class="btn btn-secondary btn-sm">Toggle</button>
+          </div>
+          <div class="pref-row">
+            <span>Font Size</span>
+            <button id="pref-font" class="btn btn-secondary btn-sm">Cycle Size</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav-btn active" data-page="dashboard"><span class="material-icons-round">dashboard</span><span>Home</span></button>
+    <button class="mobile-nav-btn" data-page="camera"><span class="material-icons-round">photo_camera</span><span>Camera</span></button>
+    <button class="mobile-nav-btn" data-page="stt"><span class="material-icons-round">mic</span><span>Speech</span></button>
+    <button class="mobile-nav-btn" data-page="tts"><span class="material-icons-round">record_voice_over</span><span>Read</span></button>
+    <button class="mobile-nav-btn" data-page="summarizer"><span class="material-icons-round">summarize</span><span>Summary</span></button>
+    <button class="mobile-nav-btn" data-page="translator"><span class="material-icons-round">translate</span><span>Translate</span></button>
+  </nav>
+
+  <!-- Toast & Loader -->
+  <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+  <div id="loader" class="loader-overlay" aria-hidden="true">
+    <div class="loader-spinner"></div>
+    <p id="loader-text">Processing…</p>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
