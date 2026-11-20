@@ -4,7 +4,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // --------------- Middleware ---------------
 app.use(cors());
@@ -185,13 +185,8 @@ app.get("*", (_req, res) => {
 });
 
 // Start
-app.listen(PORT, () => {
-  console.log("");
-  console.log("  ============================================");
-  console.log("  AccessMate AI is running!");
-  console.log("  Open: http://localhost:" + PORT);
-  console.log("  ============================================");
-  console.log("  Models (in fallback order):");
-  MODEL_LIST.forEach((m, i) => console.log(`    ${i + 1}. ${m}`));
-  console.log("");
+
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
